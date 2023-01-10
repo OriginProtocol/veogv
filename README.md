@@ -1,5 +1,5 @@
 # veOGV
-Refer to the [veOGV site](https://originprotocol.gitbub.io/veogv) for an overview of the project.
+Refer to the [veOGV site](https://originprotocol.github.io/veogv) for an overview of the project.
 
 # Development
 
@@ -12,5 +12,22 @@ forge install
 forge test
 ```
 
-## Deployment
-TODO: add step by step instructions for configuring the contracts and running a Mainnet deploy
+# Deployment
+
+## Configuration
+ - Configure contracts/GovernanceToken.sol
+   - Update the name and symbol of your governance token
+   - ...
+ - Configure contracts/OgvStaking.sol
+   - Update the `symbol()` method in  to return the symbol of your staked governance token (vs "veOGV")
+   - Pick a value for `epoch` which is the start of staking as a Unix timestamp
+   - ...
+- Configure contracts/RewardsSource.sol
+   - Pick your inflation slopes
+   - ...
+
+## Deploy to testnet
+FILL ME
+
+## Deploy to Mainnet
+FILL ME
