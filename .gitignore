@@ -2,4 +2,3 @@ out
 build/
 cache/
 lib/openzeppelin-contracts/
-site/_site/
