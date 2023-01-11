@@ -2,7 +2,7 @@
 
 OGV and veOGV are the governance and staked governance tokens for [Origin Dollar](https://ousd.com) which is a DeFi protocol on the Etherum blockchain.
 
-# Hharacteristics
+# Characteristics
 
 [Curve](https://curve.fi) pioneered the concept of vote-escrowed token when they released their [veCRV implementation](https://github.com/curvefi/curve-dao-contracts/blob/1086fe318b705d7d7b47f141c2aee33663c32d14/contracts/VotingEscrow.vy).
 
