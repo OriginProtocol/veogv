@@ -1,6 +1,6 @@
 # veOGV
 
-OGV and veOGV are the governance and staked governance tokens developed by Origin Protocol for Origin Dollar.
+OGV and veOGV are the governance and staked governance tokens for [Origin Dollar](https://ousd.com).
 
 # OGV and veOGV high level characteristics
 
