@@ -1,4 +1,7 @@
 # veOGV
+<img width="232" alt="Screenshot 2023-01-11 at 8 39 07 AM" src="https://user-images.githubusercontent.com/945910/211863953-432e153c-f9f7-4bcf-a3e1-315061b81a84.png">
+
+
 
 OGV and veOGV are the governance and staked governance tokens for [Origin Dollar (OUSD)](https://ousd.com) which is a DeFi protocol on the Etherum blockchain. Refer to the [OUSD docs](https://docs.ousd.com/governance/ogv-staking) for more details on  how the OUSD protocol uses OGV and veOGV.
 
