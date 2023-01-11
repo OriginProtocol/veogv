@@ -1,23 +1,29 @@
 # veOGV
 
-OGV and veOGV are the governance and staked governance tokens for [Origin Dollar](https://ousd.com) which is a DeFi protocol on the Etherum blockchain.
+OGV and veOGV are the governance and staked governance tokens for [Origin Dollar (OUSD)](https://ousd.com) which is a DeFi protocol on the Etherum blockchain. Refer to the [OUSD docs](https://docs.ousd.com/governance/ogv-staking) for more details on  how the OUSD protocol uses OGV and veOGV.
 
 # Characteristics
 
 [Curve](https://curve.fi) pioneered the concept of vote-escrowed token when they released their [veCRV implementation](https://github.com/curvefi/curve-dao-contracts/blob/1086fe318b705d7d7b47f141c2aee33663c32d14/contracts/VotingEscrow.vy).
 
-veOGV innovation resides in using an exponential decay as opposed to the linear decay used by veCRV. This allows to significantly reduce the complexity of the smart contract logic, and its gas consumption.
+veOGV innovation resides in using an exponential decay as opposed to the linear decay used by veCRV. This allows to significantly reduce the complexity of the smart contract logic (veOGV is 175 loc), unlocks functionality such as vote delegation and minimizes gas consumption.
 
-
-
-veOGV key characteristics:
+Here are some of veOGV key characteristics:
  - ERC20
  - Open Zeppelin [ERC20Votes](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Votes.sol) compatible
  - Vote delegation
  - Configurable rewards token distribution
 
+In comparison to veCRV, one of the drawback of veOGV is that voting power does not decay down to zero. It is a side effect of using exponential decay vs linear decay. But on the other hand it offers several advantages.
 
-Refer to the [OUSD docs](https://docs.ousd.com/governance/ogv-staking)
+| Attribute | veOGV | veCRV |
+| ----------- | ----------- | ----------- |
+| ERC20      | Yes | Yes |
+| Snapshot | Yes | Yes |
+| Vote delegation | Yes | No |
+| Built-in rewards distribution | Yes | No |
+| Solidity smart contracts | Yes | No (vyper) |
+| No voting power at end of staking period | No  | Yes |
 
 TBD: should we duplicate the content from OUSD docs here?
 
@@ -40,7 +46,7 @@ This has the following properties:
 TODO: add more details and diagrams, primary based on [DVF's notes](https://gist.github.com/DanielVF/728326db026c3f95a4e994b286a0a147)
 
 
-# Implementation</h1>
+# Implementation
 
 The smart contract implementation is structured into 3 contracts:
 ## GovernanceToken.sol
@@ -54,12 +60,15 @@ Implementation for the logic related to the calculation and collection of reward
 
 # Gas usage
 The veOGV implementation is optimized for low gas consumption.
-| Operation      | Gas usage in gwei |
+| Operation | Gas usage in gwei |
 | ----------- | ----------- |
 | Stake      | 257k |
 | Unstake and collect rewards | 104k |
 | Extend stake | 174k |
 | Delegate | 102k |
+
+# Security
+veOGV smart contracts were audited by Open Zeppelin. The reports can be found [here](https://github.com/OriginProtocol/security/blob/master/audits/Solidified%20-%20OGV%2C%20wOUSD%2C%20and%20ERC721a%20-%20May%202022.pdf).
 
 # Using OGV and veOGV for your project
 The implementation OGV and veOGV tokens is meant to be generic - there is no code specific to Origin Dollar. Refer to the [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instructions to deploy your own vote-escrowed governance token.
