@@ -1,10 +1,10 @@
-# Intro
+# veOGV
 
 OGV and veOGV are the governance and staked governance tokens developed by Origin Protocol for Origin Dollar.
 
 # OGV and veOGV high level characteristics
 
-Refer to the [OUSD docs]("https://docs.ousd.com/governance/ogv-staking")
+Refer to the [OUSD docs](https://docs.ousd.com/governance/ogv-staking)
 
 TBD: should we duplicate the content from OUSD docs here?
 
@@ -26,4 +26,4 @@ Structured into 3 contracts:
 # Forking OGV and veOGV code for your own project
 It is straight forward to fork the repo and adjust it for the specific needs of your project, or use it as is if you'd like.
 
-Refer to the details [README]("https://github.com/OriginProtocol/veogv/blob/main/README.md") for step by step instrcutions.
+Refer to the details [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instrcutions.
