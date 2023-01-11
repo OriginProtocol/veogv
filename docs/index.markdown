@@ -39,6 +39,5 @@ The veOGV implementation, including staking and unstaking.
 ## RewardsSource.sol
 Implementation for the logic related to the calculation and collection of rewards (in the form of extra OGV) for the stakers.
 
-# Forking OGV and veOGV code for your own project
-It is straight forward to fork the repo and adjust it for the specific needs of your project, or use it as is if you'd like.
-Refer to the [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instrcutions.
+# Using OGV and veOGV for your project
+The implementation OGV and veOGV tokens is meant to be generic - there is no code specific to Origin Dollar. Origin Protocol encourages the community to  Refer to the [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instructions to deploy your own vote-escrowed governance token.
