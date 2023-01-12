@@ -50,7 +50,11 @@ TODO: add more details and diagrams, primary based on [DVF's notes](https://gist
 
 
 # Rewards
-veOGV includes a baked-in functionality to distribute rewards to the stakers. The rewards are in the form of extra OGV that are awarded relatively to the percentage of veOGV a staker holds. The rewards distribution logic is similar to MasterChef where rewards are distributed every block. The rewards amount is configurable as tranches - a series of time-ranges associated with a total number of rewards token the system should distribute. The stakers can collect their rewards at anytime. The distribution of awards can be turned off by setting a schedule where no tokens are allocated.
+veOGV includes a baked-in functionality to distribute rewards to the stakers. The rewards are in the form of extra OGV that are awarded relatively to the percentage of veOGV a staker holds.
+
+The rewards schedule is configurable as tranches. A tranche is defined by a time window and amount of OGV rewards to distribute per day in that tranche. The stakers can collect their rewards at anytime.
+
+The distribution of awards is optional and can be turned off if desired.
 
 TODO: add a diagram representing the "step function" based reward schedule.
 
