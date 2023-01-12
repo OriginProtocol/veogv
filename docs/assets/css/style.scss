@@ -2,3 +2,85 @@
 ---
 
 @import "{{ site.theme }}";
+
+.page-header {
+    background: #1E1F25;
+
+    /* 20pt Sailec Medium */
+    font-family: 'Sailec';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+}
+
+.page-header .btn {
+
+    color: #FFFFFF;
+    background: rgba(0, 116, 240, 0.5);
+    
+    /* 16pt Inter Bold */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+
+    border: 1px solid #0074F0;
+    box-shadow: 0px 27px 80px rgba(0, 0, 0, 0.07), 0px 6.0308px 17.869px rgba(0, 0, 0, 0.0417275), 0px 1.79553px 5.32008px rgba(0, 0, 0, 0.0282725);
+    border-radius: 100px;
+ }
+
+body {
+    background: #1E1F25;
+}
+
+.main-content {
+    color: #E6E9ED;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+    color: #FAFBFB;
+
+    /* 40pt Sailec Bold */
+    font-family: 'Sailec';
+    font-style: normal;
+}
+
+.main-content h1 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.main-content h2 {
+    /* Franck: missing in Figma so picked this! */
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.main-content h2 {
+    /* Franck: missing in Figma so picked this! */
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 48px;
+}
+
+/* Links */
+.main-content a {
+    color: #0074F0
+}
+
+/* Images - why is centering not working ???*/
+.main-content img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

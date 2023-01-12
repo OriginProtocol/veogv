@@ -1,13 +1,15 @@
-# veOGV
-<img width="232" alt="Screenshot 2023-01-11 at 8 39 07 AM" src="https://user-images.githubusercontent.com/945910/211863953-432e153c-f9f7-4bcf-a3e1-315061b81a84.png">
+<img alt="veOGV" src="assets/img/veogv.png">
+
+
+<img alt="OGV and OUSD" src="assets/img/ogv_and_ousd.png">
 
 
 
-OGV and veOGV are the governance and staked governance tokens for [Origin Dollar (OUSD)](https://ousd.com) which is a DeFi protocol on the Etherum blockchain. Refer to the [OUSD docs](https://docs.ousd.com/governance/ogv-staking) for more details on  how the OUSD protocol uses OGV and veOGV.
+OGV and veOGV are the governance and staked governance tokens for [Origin Dollar (OUSD)](https://ousd.com) which is a leading DeFi protocol on the Etherum blockchain. Refer to the [OUSD docs](https://docs.ousd.com/governance/ogv-staking) for more details on  how the OUSD protocol uses OGV and veOGV.
 
 # Characteristics
 
-[Curve](https://curve.fi) pioneered the concept of vote-escrowed token when they released their [veCRV implementation](https://github.com/curvefi/curve-dao-contracts/blob/1086fe318b705d7d7b47f141c2aee33663c32d14/contracts/VotingEscrow.vy).
+[Curve Finance](https://curve.fi) pioneered the concept of vote-escrowed token when they released their [veCRV implementation](https://github.com/curvefi/curve-dao-contracts/blob/1086fe318b705d7d7b47f141c2aee33663c32d14/contracts/VotingEscrow.vy).
 
 veOGV innovation resides in using an exponential decay as opposed to the linear decay used by veCRV. This allows to significantly reduce the complexity of the smart contract logic (veOGV is 175 loc), unlocks functionality such as vote delegation and minimizes gas consumption.
 
@@ -28,7 +30,7 @@ In comparison to veCRV, one of the drawback of veOGV is that voting power does n
 | Solidity smart contracts | Yes | No (vyper) |
 | No voting power at end of staking period | No  | Yes |
 
-TBD: should we duplicate the content from OUSD docs here?
+TBD: should we have more content inspired from the OUSD docs here?
 
 # Exponential voting power decay</h1>
 
