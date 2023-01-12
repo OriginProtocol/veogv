@@ -19,7 +19,7 @@ Here are some of veOGV key characteristics:
  - Vote delegation
  - Configurable rewards token distribution
 
-In comparison to veCRV, one of the drawback of veOGV is that voting power does not decay down to zero. It is a side effect of using exponential decay vs linear decay. But on the other hand it offers several advantages.
+In comparison to veCRV, veOGV offers several advantages. A trade-off is that is that with veOGV the voting power does not decay down to zero. It is a side effect of using exponential decay vs linear decay.
 
 | Attribute | veOGV | veCRV |
 | ----------- | ----------- | ----------- |
@@ -28,7 +28,7 @@ In comparison to veCRV, one of the drawback of veOGV is that voting power does n
 | Vote delegation | Yes | No |
 | Built-in rewards distribution | Yes | No |
 | Solidity smart contracts | Yes | No (vyper) |
-| No voting power at end of staking period | No  | Yes |
+| Residual voting power at the end of the staking | No  | Yes |
 
 TBD: should we have more content inspired from the OUSD docs here?
 
@@ -62,15 +62,10 @@ TODO: add a diagram representing the "step function" based reward schedule.
 
 # Implementation
 
-The smart contract implementation is structured into 3 contracts:
-## GovernanceToken.sol
-The OGV ERC20 token.
-
-## OGVStaking.sol
-The veOGV implementation, including staking and unstaking.
-
-## RewardsSource.sol
-Implementation for the logic related to the calculation and collection of rewards (in the form of extra OGV) for the stakers.
+The smart contract implementation is structured into 3 compact contracts for a total of less than 400 lines of code! 
+ - GovernanceToken.sol: The OGV ERC20 token.
+ - OGVStaking.sol: The veOGV implementation. Including staking, unstaking and rewards collection.
+ - RewardsSource.sol: The logic related to the calculation and minting of rewards (in the form of extra OGV) for the stakers.
 
 # Gas usage
 The veOGV implementation is optimized for low gas consumption.
@@ -82,7 +77,7 @@ The veOGV implementation is optimized for low gas consumption.
 | Delegate | 102k |
 
 # Security
-veOGV smart contracts were audited by Open Zeppelin. The reports can be found [here](https://github.com/OriginProtocol/security/blob/master/audits/Solidified%20-%20OGV%2C%20wOUSD%2C%20and%20ERC721a%20-%20May%202022.pdf).
+veOGV smart contracts were audited by Open Zeppelin. The audit report can be found [here](https://github.com/OriginProtocol/security/blob/master/audits/Solidified%20-%20OGV%2C%20wOUSD%2C%20and%20ERC721a%20-%20May%202022.pdf).
 
 # Using OGV and veOGV for your project
-The implementation OGV and veOGV tokens is meant to be generic - there is no code specific to Origin Dollar. Refer to the [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instructions to deploy your own vote-escrowed governance token.
+The implementation of the OGV and veOGV tokens is meant to be generic - there is no code specific to Origin Dollar. Refer to the [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instructions to deploy your own vote-escrowed governance token.
