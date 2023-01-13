@@ -1,4 +1,7 @@
+.env
 out
+broadcast/
+site/
 build/
 cache/
 lib/openzeppelin-contracts/

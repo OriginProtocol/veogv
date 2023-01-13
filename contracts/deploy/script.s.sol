@@ -22,22 +22,23 @@ contract Deploy is Script {
 
         vm.startBroadcast(deployerPrivateKey);
 
+        // Deploy the governance token.
         OriginDollarGovernance ogv = new OriginDollarGovernance();
-        // FIXME: pass the 4 bytes function signature for "initialize()"
-        // The following did not work (compiler complaining about memory bytes vs bytes)
-        // bytes encodedSignature = bytes(bytes4(keccak256("initialize()")));
-        // ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), encodedSignature);
-        ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), '');
+        bytes memory initializeSignature = abi.encode(bytes4(keccak256("initialize()")));
+        ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), initializeSignature);
 
+        // Deploy the rewards source token.
         RewardsSource source = new RewardsSource(address(ogvProxy));
         RewardsSourceProxy rewardsProxy = new RewardsSourceProxy();
         rewardsProxy.initialize(address(source), deployerAddress, '');
         source = RewardsSource(address(rewardsProxy));
 
+        // Deploy the vote-escrowed token.
         OgvStaking staking = new OgvStaking(address(ogvProxy), EPOCH, MIN_STAKE_DURATION, address(source));
         OgvStakingProxy stakingProxy = new OgvStakingProxy();
         stakingProxy.initialize(address(staking), deployerAddress, '');
 
+        // Configure the vote-escrowed token.
         staking = OgvStaking(address(stakingProxy));
         source.setRewardsTarget(address(staking));
 
