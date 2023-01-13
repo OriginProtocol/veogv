@@ -1,4 +1,3 @@
-<img alt="veOGV" src="assets/img/veogv.png">
 
 
 <img alt="OGV and OUSD" src="assets/img/ogv_and_ousd.png">
