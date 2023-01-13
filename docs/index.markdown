@@ -31,8 +31,6 @@ veOGV, offers several advantages over veCRV. A trade-off is that is that with ve
 | Solidity smart contracts | Yes | No (vyper) |
 | Residual voting power at the end of the staking | No  | Yes |
 
-TBD: should we have more content inspired from the OUSD docs here?
-
 # Exponential voting power decay</h1>
 
 The amount of veOGV allocated in return for staking OGV is calculated using this formula:
@@ -49,28 +47,37 @@ This has the following properties:
  - The voting power decay happens via dilution as additional veOGV tokens are minted when new stakes occur.
  - The voting power of a staker relative to the othe stakers remains constant until a new stake or unstake event occurs.
 
-TODO: add more details and diagrams, primary based on [DVF's notes](https://gist.github.com/DanielVF/728326db026c3f95a4e994b286a0a147)
 
 # Examples of Linear voting power decay</h3>
 
 <img alt="chart-Linear-voting-decay-2 users" src="assets/img/chart-Linear-voting-decay-2-users.png">
+<br/>
 
 <img alt="chart-Linear-decay-percentage-of-voting-power-2-users" src="assets/img/Linear-decay-percentage-of-voting-power-2-users.png">
+<br/>
 
 <img alt="chart-Linear-decay-voting -power-4-users" src="assets/img/Linear-decay-voting -power-4-users.png">
+<br/>
 
 <img alt="chart-Linear-decay-percentage-of-voting-power-4-users" src="assets/img/Linear-decay-percentage-of-voting-power-4-users.png">
+Notice how the calculation of the relative power becomes fairly complicated... and this is just for 4 users! With hundreds or thousands of users it requires non-trivial computation which is challenging to do on-chain.
+<br/>
 
 # Examples of Exponential voting power decay</h3>
 
 <img alt="chart-Exponential-decay-voting-power-2-users" src="assets/img/Exponential-decay-voting-power-2-users.png">
+<br/>
 
 <img alt="chart-Exponential-decay-percentage-of-voting-power-2-users" src="assets/img/Exponential-decay-percentage-of-voting-power-2-users.png">
+A key property about exponential decay is that the percentage of voting power remains contant and only changes when a new staking or unstaking event takes place.
+<br/>
 
 <img alt="chart-Exponential-decay-voting-power-4-users" src="assets/img/Exponential-decay-voting-power-4-users.png">
+<br/>
 
 <img alt="chart-Exponential-decay-percentage-of-voting-power-4-users" src="assets/img/Exponential-decay-percentage-of-voting-power-4-users.png">
-
+Notice how simpler the calculation of relative voting power becomes vs linear decay. One (worth the trade-off!) limitaton is that there is residual voting power after a user's stake expires.
+<br/>
 
 
 # Rewards
@@ -80,6 +87,7 @@ The rewards schedule is configurable in tranches. A tranche is defined by a time
 
 The distribution of rewards is optional and can be turned off if desired.
 
+As an example, here is how we configured the reward schedule for veOGV:
 <img alt="Chart-OGV-token-emissions-schedule.png" src="assets/img/OGV-token-emissions-schedule.png">
 
 # Implementation
