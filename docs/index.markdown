@@ -50,6 +50,9 @@ This has the following properties:
 
 TODO: add more details and diagrams, primary based on [DVF's notes](https://gist.github.com/DanielVF/728326db026c3f95a4e994b286a0a147)
 
+<img alt="chart-Linear-voting-decay-2 users" src="assets/img/chart-Linear-voting-decay-2 users.png">
+
+
 
 # Rewards
 veOGV includes a baked-in functionality to distribute rewards to the stakers. The rewards are in the form of extra OGV that are awarded relatively to the percentage of veOGV a staker holds.
