@@ -9,3 +9,9 @@ remappings = [
   "paulrberg/prb-math@2.5.0/=./lib/prb-math"
 ]
 solc = '0.8.10'
+
+[rpc_endpoints]
+goerli = "${GOERLI_RPC_URL}"
+
+[etherscan]
+goerli = { key = "${ETHERSCAN_API_KEY}" }

@@ -28,15 +28,40 @@ forge test
      - `min_stake_duration`: minimum staking duration, in seconds. For example for to have a minimum of 6 months, use a value of 15552000 = 6 * 30 * 24 * 60 * 60.
 - Rewards
    - Pick configuration values to be used during the deployment phase
-     -`inflation_slopes`: An array of structs (time_start, time_end, rate_per_day) with times in seconds since staking epoch and rate as an OGV amount with 18 decimals. The time ranges should be contiguous meaning the end_time for a range should be used as start_time for the next  range.
+     -`inflation_slopes`: An array of structs (time_start, time_end, rate_per_day) with times in seconds since staking epoch and rate as an OGV amount with 18 decimals. The time ranges should be contiguous meaning the end_time for a range should be used as start_time for the next range.
 
 ## Deploy
+The contracts can be deployed either using a script or manually via the forge cli. It is recommended to use the script as it is less error prone.
+
+### Scripted
+Update the deploy script with your desired values for epoch, min_stake_duration and inflation_slopes.
+
+Define the following environment variables in your shell:
+```sh
+export DEPLOYER_ADDRESS=...
+export DEPLOYER_PRIVATE_KEY=...
+export ETHERSCAN_API_KEY=...
+```
+
+Make sure you have enough ETH to pay for gas in the DEPLOYER wallet.
+
+Run the script on Goerli first:
+```sh
+forge script contracts/deploy/script.s.sol:Deploy --rpc-url <goerli_rpc_url> --broadcast --verify -vvvv
+```
+
+Run the script on Mainnet:
+```sh
+forge script contracts/deploy/script.s.sol:Deploy --rpc-url <mainner_rpc_url> --broadcast --verify -vvvv
+```
+
+### Cli based
 
 Notes:
  - The exact same set of commands can be used on Testnet and Mainnet. Just update the <rpc_url> to point at the desired target network.
  - The commands below are for deployig with proxies that give the optionality to upgrade the implementations in the future.
 
-### Deploy the governance token
+#### Deploy the governance token
 Deploy the implementation
 ```sh
 forge create contracts/GovernanceToken.sol:OriginDollarGovernance \
@@ -46,7 +71,7 @@ forge create contracts/GovernanceToken.sol:OriginDollarGovernance \
     --verify
 ```
 
-Deploy the proxy and set the implementation.
+Deploy the proxy, then set the implementation.
 Note the second constructor argument is the 4-byte encoded signature of the `initialize()` function.
 ```sh
 forge create contracts/upgrades/ERC1967Proxy.sol:ERC1967Proxy \
@@ -57,7 +82,7 @@ forge create contracts/upgrades/ERC1967Proxy.sol:ERC1967Proxy \
     --verify
 ```
 
-### Deploy the rewards source contract
+#### Deploy the rewards source contract
 Deploy the implementation, including setting immutable variables via the constructor.
 ```sh
 forge create contracts/RewardsSource.sol:RewardsSource \
@@ -68,17 +93,23 @@ forge create contracts/RewardsSource.sol:RewardsSource \
     --verify
 ```
 
-Deploy the proxy, set the implementation and owner
+Deploy the proxy, then set the implementation and owner
 ```sh
 forge create contracts/upgrades/RewardsSourceProxy.sol:RewardsSourceProxy \
-    --constructor-args <rewards_implementation_address> <deployer_address> \
     --rpc-url <rpc_url> \
     --private-key <deployer_private_key> \
     --etherscan-api-key <your_etherscan_api_key> \
     --verify
 ```
 
-### Deploy the vote-escrowed token
+```sh
+cast send <rewards_source_proxy_address> \
+    "initialize(address,address,bytes)" <rewards_implementation_address> <deployer_address> ''\
+    --rpc-url <rpc_url> \
+    --private-key <deployer_private_key>
+```
+
+#### Deploy the vote-escrowed token
 Deploy the implementation, including setting immutable variables via the constructor.
 ```sh
 forge create contracts/OgvStaking.sol:OgvStaking \
@@ -89,17 +120,23 @@ forge create contracts/OgvStaking.sol:OgvStaking \
     --verify
 ```
 
-Deploy the proxy, set the implementation and owner
+Deploy the proxy, then set the implementation and owner
 ```sh
 forge create contracts/upgrades/OgvStakingProxy.sol:OgvStakingProxy \
-    --constructor-args <staking_implementation_address> <deployer_address> \
     --rpc-url <rpc_url> \
     --private-key <deployer_private_key> \
     --etherscan-api-key <your_etherscan_api_key> \
     --verify
 ```
 
-### Configure the rewards source
+```sh
+cast send <rewards_source_proxy_address> \
+    "initialize(address,address,bytes)" <ogv_implementation_address> <deployer_address> ''\
+    --rpc-url <rpc_url> \
+    --private-key <deployer_private_key>
+```
+
+#### Configure the rewards source
 Set the target as the veOGC contract
 ```sh
 cast send <rewards_source_proxy_address> \
