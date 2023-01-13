@@ -25,8 +25,9 @@ contract Deploy is Script {
         OriginDollarGovernance ogv = new OriginDollarGovernance();
         // FIXME: pass the 4 bytes function signature for "initialize()"
         // The following did not work (compiler complaining about memory bytes vs bytes)
-        // bytes4 encodedSignature = bytes4(keccak256("initialize()"));
-        ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), '');
+        // bytes encodedSignature = bytes(bytes4(keccak256("initialize()")));
+        // ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), encodedSignature);
+    ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), '');
 
         RewardsSource source = new RewardsSource(address(ogvProxy));
         RewardsSourceProxy rewardsProxy = new RewardsSourceProxy();
