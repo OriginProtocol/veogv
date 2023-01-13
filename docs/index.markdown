@@ -76,7 +76,7 @@ The rewards schedule is configurable in tranches. A tranche is defined by a time
 
 The distribution of rewards is optional and can be turned off if desired.
 
-<img alt="Chart-OGV-token-emissions-schedule.png" src="assets/img/OGV-token-emissions-schedule.png.png">
+<img alt="Chart-OGV-token-emissions-schedule.png" src="assets/img/OGV-token-emissions-schedule.png">
 
 # Implementation
 
