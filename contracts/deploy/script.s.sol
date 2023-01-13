@@ -27,7 +27,7 @@ contract Deploy is Script {
         // The following did not work (compiler complaining about memory bytes vs bytes)
         // bytes encodedSignature = bytes(bytes4(keccak256("initialize()")));
         // ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), encodedSignature);
-    ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), '');
+        ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), '');
 
         RewardsSource source = new RewardsSource(address(ogvProxy));
         RewardsSourceProxy rewardsProxy = new RewardsSourceProxy();
