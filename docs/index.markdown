@@ -111,3 +111,5 @@ veOGV smart contracts were audited by Open Zeppelin. The audit report can be fou
 
 # Using OGV and veOGV for your project
 OGV and veOGV token implementation is meant to be generic - there is no code specific to Origin Dollar. Refer to the [README](https://github.com/OriginProtocol/veogv/blob/main/README.md) for step by step instructions to deploy your own vote-escrowed governance token.
+
+Reach out on [Origin Protocol Discord](https://discord.com/invite/ogn) if you have any questions or need help!

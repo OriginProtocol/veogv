@@ -7,3 +7,7 @@ Then run locally from this directory:
 ```sh
 bundle exec jekyll serve
 ```
+
+TODO:
+ - Figure how to have the site use the Origin fonts (Inter and Sailec).
+ - Figure how to remove the top header.
