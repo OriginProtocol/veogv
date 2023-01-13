@@ -51,7 +51,7 @@ This has the following properties:
 
 TODO: add more details and diagrams, primary based on [DVF's notes](https://gist.github.com/DanielVF/728326db026c3f95a4e994b286a0a147)
 
-<img alt="chart-Linear-voting-decay-2 users" src="assets/img/chart-Linear-voting-decay-2users.png">
+<img alt="chart-Linear-voting-decay-2 users" src="assets/img/chart-Linear-voting-decay-2-users.png">
 
 <img alt="chart-Linear-decay-percentage-of-voting-power-2-users" src="assets/img/Linear-decay-percentage-of-voting-power-2-users.png">
 
