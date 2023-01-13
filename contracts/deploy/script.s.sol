@@ -25,7 +25,7 @@ contract Deploy is Script {
         OriginDollarGovernance ogv = new OriginDollarGovernance();
         // FIXME: pass the 4 bytes function signature for "initialize()"
         // The following did not work (compiler complaining about memory bytes vs bytes)
-        // bytes4  encodedSignature = bytes4(keccak256("initialize()"));
+        // bytes4 encodedSignature = bytes4(keccak256("initialize()"));
         ERC1967Proxy ogvProxy = new ERC1967Proxy(address(ogv), '');
 
         RewardsSource source = new RewardsSource(address(ogvProxy));
@@ -43,10 +43,10 @@ contract Deploy is Script {
         // Set the rewards inflation schedule.
         RewardsSource.Slope[] memory slopes = new RewardsSource.Slope[](3);
         slopes[0].start = uint64(EPOCH);
-        slopes[0].ratePerDay = 4 ether;
-        slopes[1].start = uint64(EPOCH + 2 days);
-        slopes[1].ratePerDay = 2 ether;
-        slopes[2].start = uint64(EPOCH + 7 days);
+        slopes[0].ratePerDay = 1000000 ether;
+        slopes[1].start = uint64(EPOCH + 30 days);
+        slopes[1].ratePerDay = 100000 ether;
+        slopes[2].start = uint64(EPOCH + 60 days);
         slopes[2].ratePerDay = 1 ether;
         source.setInflation(slopes);
 
